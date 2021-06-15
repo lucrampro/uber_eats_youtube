@@ -7,12 +7,14 @@
       <div class="wrapper--input">
         <input v-model="user_search_restaurant" type="text" placeholder="De quoi avez vous envie ?">
         <div class="search">
-          <div v-for="(restaurant, i) in search_restaurant" :key="i" class="container--restaurant--search">
-            <div class="wrapper--img">
-              <img :src="restaurant.image" alt="" srcset="">
+          <router-link to="/restaurant">
+            <div v-for="(restaurant, i) in search_restaurant" :key="i" class="container--restaurant--search">
+              <div class="wrapper--img">
+                <img :src="restaurant.image" alt="" srcset="">
+              </div>
+              <p>{{restaurant.name}}</p>
             </div>
-            <p>{{restaurant.name}}</p>
-          </div>
+          </router-link>
         </div>
       </div>
 
@@ -119,6 +121,7 @@
           outline: none;
           padding-left: 20px;
         }
+
         .search {
           position: absolute;
           top: 100%;
@@ -140,6 +143,7 @@
               margin-right: 25px;
               border-radius: 50%;
               overflow: hidden;
+
               img {
                 height: 100%;
                 width: auto;
